@@ -1,0 +1,28 @@
+<body style="background-image:url({% static 'assets/img/hero-carousel/2.jpg' %})">
+    <form action="/ADMIN/fileupload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <tr>
+    <td><label> Item name </label></td>
+    <td><input type="text" name="itemname"></td>
+            </tr>
+            <tr>
+    <td><label> Item price</label></td>
+    <td><input type="text" name="itemprice"></td>
+            </tr>
+            <tr>
+    <td><label> Item Decription</label></td>
+    <td><textarea  name="itemdecription"></textarea></td>
+            </tr>
+            <tr>
+    <td><label> Item Image</label></td>
+    <td><input type="file" name="picture"></td>
+            </tr>
+    <span style="color:yellow"> {{success}} </span>
+    <tr>
+        <td></td>
+    <td><button type="submit">Submit</button></td>
+    </tr>
+        </table>
+</form>
+</body>

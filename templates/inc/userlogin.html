@@ -1,0 +1,39 @@
+{% load static %}
+
+{% comment %} {% include 'component/header.html'%} {% endcomment %}
+<br><br><br>
+<html>
+    <head>
+        <Title>Login Form</Title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet"href="{% static 'assets/css/userlogin.css' %}">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    </head>
+    <body>
+        <form action="userlogin" method="POST">
+            {% csrf_token %}
+        <div class="form">
+            <h2>Login</h2>
+            <div class="input">
+                <div class="inputBox">
+                    <label for="">Email</label>
+                    <input type="email" name="email">
+                </div>
+                <div class="inputBox">
+                    <label for="">Password</label>
+                    <input type="password" name="password">
+                    <span style="color:red"> {{error}} </span>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Sign In"> 
+                </div>
+            </div>
+            <p class="forgot">Don't have an account? <a href="userreg">Register here</a></p>
+            
+        </div>
+    </form>
+    </body>
+</html>
+{% comment %} {% include 'component/footer.html'%} {% endcomment %}
+
+
