@@ -7,9 +7,9 @@ def fileupload(request):
     if request.method=='POST':
         itemname=request.POST.get('itemname')
         itemprice=request.POST.get('itemprice')
-        itemdecription=request.POST.get('itemdecription')
+        itemdescription=request.POST.get('itemdescription')
         picture=request.FILES.get('picture')
-        obj=itemtable.objects.create(itemname=itemname,itemprice=itemprice,itemdecription=itemdecription,picture=picture)
+        obj=itemtable.objects.create(itemname=itemname,itemprice=itemprice,itemdescription=itemdescription,picture=picture)
         obj.save()
         if obj:
             message="file upload successfully"

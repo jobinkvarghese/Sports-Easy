@@ -24,6 +24,21 @@
   <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/> 
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+rel="stylesheet"
+/>
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
@@ -45,15 +60,20 @@
 
           <nav id="navbar" class="navbar">
             <ul>
-              <li><a class="nav-link scrollto " href="">Home</a></li>
+              <li><a class="nav-link scrollto " href="userhome">Home</a></li>
               <li><a class="nav-link scrollto" href="#about">Sports Items</a></li>
-              <li><a class="nav-link scrollto" href="#services">Sports Turf</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Sports Events</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Sports Academy</a></li>
-              <li><a class="nav-link scrollto" href="#contact"> Sports Posts</a></li>
-              <li><a class="nav-link scrollto" href="#contact">Make Post</a></li>
-              
-            </ul>
+              <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="">All</a></li>
+                <li><a href="">Bat</a></li>
+                <li><a href="">Football</a></li>
+                <li><a href="">Stumps</a></li>
+                <li><a href="">Gloves</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link scrollto" href="#services">Cart</a></li>
+            <li><a class="nav-link scrollto" href="#contact">My Orders</a></li>
+          </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
         </div>
@@ -63,10 +83,111 @@
   </header><!-- End Header -->
 
   <main id="main">
+{% comment %} <img src="{% static 'assets/img/hero-carousel/2.jpg' %}"> {% endcomment %}
+<br><br>
+
+<section style="background-color: #eee;">
+  <div class="text-center container py-5">
+    <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
+    <form action="sports_items">
+      {% csrf_token %}
+    <div class="row">
+      {% for n in views %}
+      <div class="col-lg-4 col-md-12 mb-4">
+        <div class="card">
+          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+            data-mdb-ripple-color="light">
+            <img src="{{n.picture.url}}"
+              class="w-100" />
+            <a href="#!">
+              <div class="mask">
+                <div class="d-flex justify-content-start align-items-end h-100">
+                  <h5><span class="badge bg-primary ms-2">New</span></h5>
+                </div>
+              </div>
+              <div class="hover-overlay">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="" class="text-reset">
+              <h5 class="card-title mb-3">{{n.itemname}}</h5>
+            </a>
+            <a href="" class="text-reset">
+              <p>{{n.itemdescription}}</p>
+            </a>
+            <h6 class="mb-3">{{n.itemprice}}</h6>
+          </div>
+        </div>
+      </div>
+
+      
+
+    {% endfor %}
+    </div>
+  </form>
+
+   
+  </div>
+</section>
 
 
 
-<img src="{% static 'assets/img/hero-carousel/2.jpg' %}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -154,6 +275,11 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+  <!-- MDB -->
+ <script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.js"
+></script> 
 
 </body>
 

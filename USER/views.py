@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
 from . models import regtable
+from ADMIN.models import itemtable
 
 # Create your views here.
 
@@ -56,10 +57,16 @@ def header(request):
 def footer(request):
     return render(request,'component/footer.html')
 def sports_items(request):
-    return render(request,'inc/sports_items.html') 
+    obj=itemtable.objects.all()
+    return render(request,'inc/sports_items.html',{'views':obj}) 
 def turf_view(request):
     return render(request,'inc/turf_view.html') 
 def event_view(request):
     return render(request,'inc/event_view.html') 
 def academy_view(request):
-    return render(request,'inc/academy_view.html')       
+    return render(request,'inc/academy_view.html')
+def view(request):
+    obj=itemtable.objects.all()
+
+    return render(request,'view.html',{'views':obj}) 
+

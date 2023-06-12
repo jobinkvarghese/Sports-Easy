@@ -1,7 +1,7 @@
 {% load static %}
 
 {% include 'component/header.html'%}
-<br><br><br><br>
+<br><br><br>
 
 <!doctype html>
 <html lang="en">
@@ -24,7 +24,7 @@
     {% csrf_token %}
     <div class="row jumbotron box8">
       <div class="col-sm-12 mx-t3 mb-4">
-        <h2 class="text-center text-info">Register</h2>
+        <h2 class="text-center text-info"><b>Register</b></h2>
       </div>
       <div class="col-sm-6 form-group">
         <label for="name-f">First Name</label>
@@ -40,7 +40,7 @@
       </div>
         
       <div class="col-sm-6 form-group">
-        <label for="address-2">Address Line-2</label>
+        <label for="address-2">Address</label>
         <input type="address" class="form-control" name="address" id="address-2" placeholder="Village/City Name." required>
       </div>
       <div class="col-sm-4 form-group">
