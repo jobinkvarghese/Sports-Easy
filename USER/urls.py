@@ -11,11 +11,12 @@ urlpatterns = [
      path('userreg', views.userreg),
      path('header', views.header),
      path('footer', views.footer),
-     path('sports_items/', views.sports_items),
      path('turf_view', views.turf_view),
      path('event_view', views.event_view),
      path('academy_view', views.academy_view),
-     path('view', views.view,),
+     path('product_list', views.product_list),
+     path('cart', views.cart,),
+     path('product_details',views.product_details)
  
  
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

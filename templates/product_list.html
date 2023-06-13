@@ -42,7 +42,18 @@ rel="stylesheet"
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+<style>
+  .card{
 
+    height:500px;
+    width:300px;
+}
+.card img{
+
+  height:240px;
+
+}
+</style>
 
 </head>
 
@@ -61,7 +72,7 @@ rel="stylesheet"
           <nav id="navbar" class="navbar">
             <ul>
               <li><a class="nav-link scrollto " href="userhome">Home</a></li>
-              <li><a class="nav-link scrollto" href="#about">Sports Items</a></li>
+              <li><a class="nav-link scrollto" href="product_list">Sports Items</a></li>
               <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="">All</a></li>
@@ -71,7 +82,7 @@ rel="stylesheet"
                 <li><a href="">Gloves</a></li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#services">Cart</a></li>
+            <li><a class="nav-link scrollto" href="cart">Cart</a></li>
             <li><a class="nav-link scrollto" href="#contact">My Orders</a></li>
           </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -83,17 +94,15 @@ rel="stylesheet"
   </header><!-- End Header -->
 
   <main id="main">
-{% comment %} <img src="{% static 'assets/img/hero-carousel/2.jpg' %}"> {% endcomment %}
 <br><br>
-
 <section style="background-color: #eee;">
   <div class="text-center container py-5">
     <h4 class="mt-4 mb-5"><strong>Bestsellers</strong></h4>
-    <form action="sports_items">
+    <form action="product_list">
       {% csrf_token %}
     <div class="row">
       {% for n in views %}
-      <div class="col-lg-4 col-md-12 mb-4">
+      <div class="col-md-3 mb-4">
         <div class="card">
           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
             data-mdb-ripple-color="light">
@@ -101,9 +110,7 @@ rel="stylesheet"
               class="w-100" />
             <a href="#!">
               <div class="mask">
-                <div class="d-flex justify-content-start align-items-end h-100">
-                  <h5><span class="badge bg-primary ms-2">New</span></h5>
-                </div>
+                
               </div>
               <div class="hover-overlay">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -112,12 +119,18 @@ rel="stylesheet"
           </div>
           <div class="card-body">
             <a href="" class="text-reset">
-              <h5 class="card-title mb-3">{{n.itemname}}</h5>
+              <h5 class="card-title mb-3"><strong>{{n.itemname}}</strong></h5>
             </a>
             <a href="" class="text-reset">
               <p>{{n.itemdescription}}</p>
             </a>
-            <h6 class="mb-3">{{n.itemprice}}</h6>
+            <hr>
+            <h4 style="display: inline-block; "><strong>₹{{n.itemprice}}</strong></h4>
+            <br>
+            
+            <button type="submit" class="btn btn-outline-primary add-btn"><strong><a href="/cart?product={{n.id}}">Add to Cart</a></strong></button>
+            <a class="btn btn-outline-success" href="product_details">View</a>
+
           </div>
         </div>
       </div>
@@ -131,6 +144,8 @@ rel="stylesheet"
    
   </div>
 </section>
+
+
 
 
 

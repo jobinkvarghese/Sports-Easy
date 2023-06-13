@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Page</title>
+  {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+  <style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .container {
+        width: 500px;
+        margin: 0 auto;
+      }
+      
+      .product-image {
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+      
+      .product-details {
+        margin-left: 120px;
+      }
+      
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      
+      p {
+        margin-bottom: 10px;
+      }
+      
+      button {
+        background-color: #337ab7;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+      
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="product-image">
+      <img src="{% static 'assets/img/Sports_items/cricket_bat.jpg' %}" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <h1>Product Name</h1>
+      <p>Product Description</p>
+      <p>Brand: <strong>Brand Name</strong></p>
+      <p>Quantity: <input type="number" min="1" max="100" value="1"></p>
+      <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+</body>
+</html>

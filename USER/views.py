@@ -56,17 +56,22 @@ def header(request):
     return render(request,'component/header.html')
 def footer(request):
     return render(request,'component/footer.html')
-def sports_items(request):
-    obj=itemtable.objects.all()
-    return render(request,'inc/sports_items.html',{'views':obj}) 
 def turf_view(request):
     return render(request,'inc/turf_view.html') 
 def event_view(request):
     return render(request,'inc/event_view.html') 
 def academy_view(request):
     return render(request,'inc/academy_view.html')
-def view(request):
-    obj=itemtable.objects.all()
 
-    return render(request,'view.html',{'views':obj}) 
+def product_list(request):
+    obj=itemtable.objects.all()
+    return render(request,'product_list.html',{'views':obj}) 
+
+def cart(request):
+    obj=request.GET.get('product')
+    item=itemtable.objects.filter(id=obj)
+    return render(request,'cart.html',{'pro':item})
+def product_details(request):
+    return render(request,'product_details.html')
+
 
