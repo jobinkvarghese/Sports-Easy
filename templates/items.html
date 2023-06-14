@@ -20,30 +20,45 @@
 
               <form action=""/ADMIN/fileupload"" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-
                 <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example1cg">Product name</label>
-                        <input type="text" id="form3Example1cg" name="itemname" class="form-control form-control-lg"required />
+                  <label class="form-label" for="form3Example1cg">Product name</label>
+                  <input type="text" id="form3Example1cg" name="itemname" class="form-control form-control-lg"required />
                 </div>
                 <div class="form-outline mb-4">
-                        <label class="form-label"  for="form3Example1cg">Product amount</label>
-                        <input type="text" id="form3Example1cg" name="itemprice" class="form-control form-control-lg"required />
+                  <label class="form-label" for="form3Example1cg">Product Brand</label>
+                  <input type="text" id="form3Example1cg" name="brand" class="form-control form-control-lg"required />
                 </div>
                 <div class="form-outline mb-4">
-                        <label class="form-label"  for="form3Example1cg">Product description</label>
-                        <textarea  id="form3Example1cg" name="itemdecription" class="form-control form-control-lg" required></textarea>
+                  <label class="form-label" for="form3Example1cg">Product seller</label>
+                  <input type="text" id="form3Example1cg" name="seller" class="form-control form-control-lg"required />
                 </div>
                 <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example1cg">Product image</label>
-                        <input type="file" id="form3Example1cg" name="picture"  class="form-control form-control-lg"required />
+                  <label class="form-label" for="form3Example1cg">Product colour</label>
+                  <input type="text" id="form3Example1cg" name="color" class="form-control form-control-lg"required />
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1cg">Status</label>
+                  <input type="text" id="form3Example1cg" name="status" class="form-control form-control-lg"required />
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label"  for="form3Example1cg">Product amount</label>
+                  <input type="text" id="form3Example1cg" name="itemprice" class="form-control form-control-lg"required />
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label"  for="form3Example1cg">Product description</label>
+                  <textarea  id="form3Example1cg" name="itemdecription" class="form-control form-control-lg" required></textarea>
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1cg">Product image</label>
+                  <input type="file" id="form3Example1cg" name="picture"  class="form-control form-control-lg"required />
                 </div>
                 <span style="color:green"> {{success}} </span>
                 <br>
                 <div class="d-flex justify-content-center">
-                        <button type="submit"class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">upload</button>
+                  <button type="submit"class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">upload</button>
                 </div>
-        </form>
-        </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

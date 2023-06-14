@@ -8,6 +8,8 @@ from ADMIN.models import itemtable
 
 def index(request):
     return render(request,'index.html')
+def code(request):
+    return render(request,'component/code.html')
 def userlogin(request):
     if request.method=='POST':
         email=request.POST.get('email')
@@ -72,6 +74,8 @@ def cart(request):
     item=itemtable.objects.filter(id=obj)
     return render(request,'cart.html',{'pro':item})
 def product_details(request):
-    return render(request,'product_details.html')
+    obj=request.GET.get('product')
+    details=itemtable.objects.filter(id=obj) 
+    return render(request,'product_details.html',{'views':details})
 
 

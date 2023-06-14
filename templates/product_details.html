@@ -1,63 +1,143 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
+{% include 'component/header.html'%}
+<br><br><br><br><br>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-  <title>Product Page</title>
-  {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
-  <style>
-    body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      
-      .container {
-        width: 500px;
-        margin: 0 auto;
-      }
-      
-      .product-image {
-        width: 100px;
-        height: 100px;
-        float: left;
-      }
-      
-      .product-details {
-        margin-left: 120px;
-      }
-      
-      h1 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-      
-      p {
-        margin-bottom: 10px;
-      }
-      
-      button {
-        background-color: #337ab7;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-      }
-      
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Website title - bootstrap html template</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'new/images/favicon.ico' %}">
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-2.0.0.min.js' %|" type="text/javascript"></script>
+
+<!-- Bootstrap4 files-->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+<link href="{% static 'new/css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+
+<!-- Font awesome 5 -->
+<link href="{% static 'fonts/fontawesome/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="{% static 'new/css/ui.css' %}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'new/css/responsive.css' %}" rel="stylesheet" />
+
+<!-- custom javascript -->
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+}); 
+// jquery end
+</script>
 
 </head>
 <body>
-  <div class="container">
-    <div class="product-image">
-      <img src="{% static 'assets/img/Sports_items/cricket_bat.jpg' %}" alt="Product Image">
-    </div>
-    <div class="product-details">
-      <h1>Product Name</h1>
-      <p>Product Description</p>
-      <p>Brand: <strong>Brand Name</strong></p>
-      <p>Quantity: <input type="number" min="1" max="100" value="1"></p>
-      <p><button>Add to Cart</button></p>
-    </div>
-  </div>
+	<section class="section-content padding-y bg">
+			<div class="container">
+			
+			<!-- ============================ COMPONENT 1 ================================= -->
+			{% for n in views %}
+			<div class="card">
+				<div class="row no-gutters">
+					<aside class="col-md-6">
+			<article class="gallery-wrap"> 
+			<div class="img-big-wrap">
+			  <div> <a href="#"><img src="{{n.picture.url}}"></a></div>
+			</div> <!-- slider-product.// -->
+			
+			
+			<!-- slider-nav.// -->
+			</article> <!-- gallery-wrap .end// -->
+					</aside>
+					<main class="col-md-6 border-left">
+			<article class="content-body">
+			
+			<h2 class="title">{{n.itemname}}</h2>
+			
+			<div class="rating-wrap my-3">
+				<ul class="rating-stars">
+					<li style="width:80%" class="stars-active"> 
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+						<i class="fa fa-star"></i> 
+					</li>
+					<li>
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+						<i class="fa fa-star"></i> <i class="fa fa-star"></i> 
+						<i class="fa fa-star"></i> 
+					</li>
+				</ul>
+				<small class="label-rating text-muted">132 reviews</small>
+				<small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 orders </small>
+			</div> <!-- rating-wrap.// -->
+			
+			<div class="mb-3"> 
+				<var class="price h4">₹{{n.itemprice}}</var> 
+				<span class="text-muted"></span> 
+			</div> <!-- price-detail-wrap .// -->
+			
+			<p>{{n.itemdescription}}</p>
+			
+			
+			<dl class="row">
+			  <dt class="col-sm-3">Brand&nbsp&nbsp&nbsp&nbsp:</dt>
+			  <dd class="col-sm-9">{{n.brand}}</dd>
+			
+			  <dt class="col-sm-3">Seller&nbsp&nbsp&nbsp&nbsp&nbsp:</dt>
+			  <dd class="col-sm-9">{{n.seller}}</dd>
+
+			  <dt class="col-sm-3">Colour&nbsp&nbsp&nbsp :</dt>
+			  <dd class="col-sm-9" style="color:black">{{n.colour}}</dd>
+			
+			  <dt class="col-sm-3">Status&nbsp&nbsp&nbsp :</dt>
+			  <dd class="col-sm-9" style="color:red">{{n.status}}</dd>
+
+			</dl>
+			
+			<hr style="color:blue">
+				<div class="form-row">
+					<div class="form-group col-md flex-grow-0">
+						<label>Quantity</label>
+						<div class="input-group mb-3 input-spinner">
+						  <div class="input-group-prepend">
+							<button class="btn btn-light" type="button" id="button-plus"> + </button>
+						  </div>
+						  <input type="text" class="form-control" value="1">
+						  <div class="input-group-append">
+							<button class="btn btn-light" type="button" id="button-minus"> − </button>
+						  </div>
+						</div>
+					</div> <!-- col.// -->
+					<div class="form-group col-md">
+							
+							<div class="mt-1">
+								
+			
+								
+								
+			
+							</div>
+					</div> <!-- col.// -->
+				</div> <!-- row.// -->
+			
+				<a href="/cart?product={{n.id}}" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+				<a href="#" class="btn  btn-primary"> Buy now </a>
+			</article> <!-- product-info-aside .// -->
+					</main> <!-- col.// -->
+				</div> <!-- row.// -->
+			</div> <!-- card.// -->
+			{% endfor %}
+		</div>
+    </section>
 </body>
 </html>
+{% comment %} {% include 'component/footer.html'%} {% endcomment %}
